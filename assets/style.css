@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-    --font-sans: "Roboto", sans-serif;
-    --font-display: "Inter Display", sans-serif;
+    --font-display: "Roboto", sans-serif;
+    --font-sans: "Inter Display", sans-serif;
     --font-mono: "JetBrains Mono", monospace;
 }

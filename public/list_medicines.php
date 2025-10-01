@@ -208,7 +208,7 @@ include '../includes/header.php';
     <div class="bg-gray-800 rounded-lg shadow overflow-x-auto border border-gray-700">
         <?php if ($medicines): ?>
             <table class="min-w-full divide-y divide-gray-700">
-                <thead class="bg-gray-700">
+                <thead class="bg-gray-700 font-display">
                 <tr>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Image
                     </th>
@@ -244,32 +244,39 @@ include '../includes/header.php';
                             <div class="text-sm font-medium text-white"><?= htmlspecialchars($med['name']) ?></div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-900/50 text-indigo-300">
+                                <span class="px-2 font-mono uppercase inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-900/50 text-indigo-300">
                                     <?= htmlspecialchars($med['category']) ?>
                                 </span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <span class="text-sm text-gray-300"><?= htmlspecialchars($med['quality']) ?></span>
+                            <span class="text-sm font-mono text-gray-300"><?= htmlspecialchars($med['quality']) ?></span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="text-sm <?= $isExpiringSoon ? 'text-red-400 font-semibold' : 'text-gray-300' ?>">
+                                <span class="text-sm font-mono <?= $isExpiringSoon ? 'text-red-400 font-semibold' : 'text-gray-300' ?>">
                                     <?= htmlspecialchars($med['expiry_date']) ?>
                                 </span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="text-sm <?= $isLowStock ? 'text-yellow-400 font-semibold' : 'text-gray-300' ?>">
+                                <span class="text-sm font-mono <?= $isLowStock ? 'text-yellow-400 font-semibold' : 'text-gray-300' ?>">
                                     <?= htmlspecialchars($med['quantity']) ?>
                                 </span>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm  font-mono text-gray-300">
                             <?= htmlspecialchars($med['box_id'] ?? 'N/A') ?>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-3">
-                            <a href="edit_medicine.php?id=<?= $med['id'] ?>"
-                               class="text-indigo-400 hover:text-indigo-300 transition">Edit</a>
-                            <a href="?delete=<?= $med['id'] ?>"
-                               onclick="return confirm('Are you sure you want to delete this medicine?')"
-                               class="text-red-400 hover:text-red-300 transition">Delete</a>
+                            <div class="flex space-x-2">
+                                <a href="edit_medicine.php?id=<?= $med['id'] ?>"
+                                   class="px-3 py-1 rounded-md text-xs font-medium bg-indigo-600 text-white hover:bg-indigo-500 transition">
+                                    Edit
+                                </a>
+                                <a href="?delete=<?= $med['id'] ?>"
+                                   onclick="return confirm('Are you sure you want to delete this medicine?')"
+                                   class="px-3 py-1 rounded-md text-xs font-medium bg-red-600 text-white hover:bg-red-500 transition">
+                                    Delete
+                                </a>
+                            </div>
+
                         </td>
                     </tr>
                 <?php endforeach; ?>

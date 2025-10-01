@@ -160,9 +160,9 @@ include '../includes/header.php';
                  alt="Profile Picture"
                  class="h-24 w-24 rounded-full object-cover ring-4 ring-indigo-500/50">
             <div class="flex-1">
-                <h2 class="text-3xl font-bold text-white"><?= htmlspecialchars($user['name']) ?></h2>
+                <h2 class="text-3xl font-bold font-display text-white"><?= htmlspecialchars($user['name']) ?></h2>
                 <p class="text-sm text-gray-400 mt-1">@<?= htmlspecialchars($user['username']) ?></p>
-                <p class="text-xs text-gray-500 mt-2">
+                <p class="text-xs text-gray-500 mt-2 flex items-center space-x-2">
                     <span class="inline-flex items-center">
                         <svg class="h-4 w-4 mr-1"
                              fill="none"
@@ -175,9 +175,10 @@ include '../includes/header.php';
                         </svg>
                         Profile #<?= str_pad($user['id'], 4, '0', STR_PAD_LEFT) ?>
                     </span>
-                    <span class="mx-2">•</span>
-                    Member since <?= date('F Y', strtotime($user['created_at'])) ?>
+                    <span>•</span>
+                    <span>Member since <?= date('F Y', strtotime($user['created_at'])) ?></span>
                 </p>
+
             </div>
         </div>
 

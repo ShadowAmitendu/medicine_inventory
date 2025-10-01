@@ -37,7 +37,7 @@ try {
             <!-- Logo & Brand -->
             <div class="flex items-center">
                 <div class="shrink-0">
-                    <a href="index.php"
+                    <a href="../public/index.php"
                        class="flex items-center space-x-3 group">
                         <div class="relative">
                             <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
@@ -54,7 +54,7 @@ try {
                 <!-- Desktop Menu Links -->
                 <div class="hidden md:block ml-10">
                     <div class="flex items-baseline space-x-2">
-                        <a href="index.php"
+                        <a href="../public/index.php"
                            class="<?= $current_page === 'index.php' ? 'bg-gray-900 dark:bg-gray-700 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200">
                             <div class="flex items-center space-x-2">
                                 <svg class="h-4 w-4"
@@ -70,7 +70,7 @@ try {
                             </div>
                         </a>
 
-                        <a href="list_medicines.php"
+                        <a href="../public/list_medicines.php"
                            class="<?= $current_page === 'list_medicines.php' ? 'bg-gray-900 dark:bg-gray-700 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200">
                             <div class="flex items-center space-x-2">
                                 <svg class="h-4 w-4"
@@ -86,7 +86,7 @@ try {
                             </div>
                         </a>
 
-                        <a href="add_medicine.php"
+                        <a href="../public/add_medicine.php"
                            class="<?= $current_page === 'add_medicine.php' ? 'bg-gray-900 dark:bg-gray-700 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200">
                             <div class="flex items-center space-x-2">
                                 <svg class="h-4 w-4"
@@ -102,7 +102,7 @@ try {
                             </div>
                         </a>
 
-                        <a href="manage_categories.php"
+                        <a href="../public/manage_categories.php"
                            class="<?= $current_page === 'manage_categories.php' ? 'bg-gray-900 dark:bg-gray-700 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200">
                             <div class="flex items-center space-x-2">
                                 <svg class="h-4 w-4"
@@ -118,7 +118,7 @@ try {
                             </div>
                         </a>
 
-                        <a href="profile.php"
+                        <a href="../public/profile.php"
                            class="<?= $current_page === 'profile.php' ? 'bg-gray-900 dark:bg-gray-700 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200">
                             <div class="flex items-center space-x-2">
                                 <svg class="h-4 w-4"
@@ -170,7 +170,7 @@ try {
                         <div class="max-h-96 overflow-y-auto">
                             <?php if ($totalNotifications > 0): ?>
                                 <?php if ($lowStockCount > 0): ?>
-                                    <a href="list_medicines.php"
+                                    <a href="../public/list_medicines.php"
                                        class="block px-4 py-3 hover:bg-gray-700 dark:hover:bg-gray-600 transition">
                                         <div class="flex items-start">
                                             <div class="flex-shrink-0">
@@ -195,7 +195,7 @@ try {
                                 <?php endif; ?>
 
                                 <?php if ($expiringCount > 0): ?>
-                                    <a href="list_medicines.php"
+                                    <a href="../public/list_medicines.php"
                                        class="block px-4 py-3 hover:bg-gray-700 dark:hover:bg-gray-600 transition border-t border-gray-700 dark:border-gray-600">
                                         <div class="flex items-start">
                                             <div class="flex-shrink-0">
@@ -267,7 +267,7 @@ try {
                                 @<?= htmlspecialchars($_SESSION['username'] ?? 'user') ?></p>
                         </div>
                         <div class="py-1">
-                            <a href="profile.php"
+                            <a href="../public/profile.php"
                                class="group flex items-center px-4 py-2.5 text-sm text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white transition-all">
                                 <svg class="mr-3 h-5 w-5 text-gray-400 dark:text-gray-500 group-hover:text-indigo-400 transition-colors"
                                      fill="none"
@@ -280,7 +280,7 @@ try {
                                 </svg>
                                 Your Profile
                             </a>
-                            <a href="change_pw.php"
+                            <a href="../public/change_pw.php"
                                class="group flex items-center px-4 py-2.5 text-sm text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white transition-all">
                                 <svg class="mr-3 h-5 w-5 text-gray-400 dark:text-gray-500 group-hover:text-indigo-400 transition-colors"
                                      fill="none"
@@ -295,7 +295,7 @@ try {
                             </a>
                         </div>
                         <div class="border-t border-gray-700 dark:border-gray-600">
-                            <a href="logout.php"
+                            <a href="../public/logout.php"
                                class="group flex items-center px-4 py-2.5 text-sm text-red-400 dark:text-red-300 hover:bg-red-900/20 hover:text-red-300 transition-all">
                                 <svg class="mr-3 h-5 w-5 group-hover:translate-x-0.5 transition-transform"
                                      fill="none"
@@ -345,46 +345,49 @@ try {
 
     <!-- Mobile Menu -->
     <div id="mobileMenu"
-         class="hidden md:hidden bg-gray-800 dark:bg-gray-700 border-t border-gray-700 dark:border-gray-600">
+         class="hidden md:hidden bg-gray-300 dark:bg-gray-900 border-t border-gray-500 dark:border-gray-800">
         <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="index.php"
+            <a href="../public/index.php"
                class="<?= $current_page === 'index.php' ? 'bg-gray-900 dark:bg-gray-600 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> block rounded-lg px-3 py-2 text-base font-medium transition-all">
                 Dashboard
             </a>
-            <a href="list_medicines.php"
+            <a href="../public/list_medicines.php"
                class="<?= $current_page === 'list_medicines.php' ? 'bg-gray-900 dark:bg-gray-600 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> block rounded-lg px-3 py-2 text-base font-medium transition-all">
                 Medicines
             </a>
-            <a href="add_medicine.php"
+            <a href="../public/add_medicine.php"
                class="<?= $current_page === 'add_medicine.php' ? 'bg-gray-900 dark:bg-gray-600 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> block rounded-lg px-3 py-2 text-base font-medium transition-all">
                 Add Medicine
             </a>
-            <a href="manage_categories.php"
+            <a href="../public/manage_categories.php"
                class="<?= $current_page === 'manage_categories.php' ? 'bg-gray-900 dark:bg-gray-600 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> block rounded-lg px-3 py-2 text-base font-medium transition-all">
                 Categories
             </a>
-            <a href="profile.php"
+            <a href="../public/profile.php"
                class="<?= $current_page === 'profile.php' ? 'bg-gray-900 dark:bg-gray-600 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> block rounded-lg px-3 py-2 text-base font-medium transition-all">
                 Profile
             </a>
         </div>
-        <div class="border-t border-gray-700 dark:border-gray-600 pt-4 pb-3">
+        <div class="border-t border-gray-700 dark:border-gray-800 pt-4 pb-3">
             <div class="flex items-center px-5">
-                <img class="size-10 rounded-full ring-2 ring-gray-700 dark:ring-gray-600"
+                <img class="w-10 h-10 rounded-full object-cover ring-2 ring-gray-700 dark:ring-gray-600"
                      src="<?= $profile_pic ? '../uploads/' . htmlspecialchars($profile_pic) : 'https://ui-avatars.com/api/?name=' . urlencode($user_name) . '&background=6366f1&color=fff&size=64' ?>"
                      alt="<?= htmlspecialchars($user_name) ?>">
                 <div class="ml-3">
-                    <div class="text-base font-medium text-white dark:text-gray-100"><?= htmlspecialchars($user_name) ?></div>
+                    <div class="text-base font-medium text-white dark:text-gray-100">
+                        <?= htmlspecialchars($user_name) ?>
+                    </div>
                     <div class="text-sm text-gray-400 dark:text-gray-500">
-                        @<?= htmlspecialchars($_SESSION['username'] ?? 'user') ?></div>
+                        @<?= htmlspecialchars($_SESSION['username'] ?? 'user') ?>
+                    </div>
                 </div>
             </div>
             <div class="mt-3 px-2 space-y-1">
-                <a href="change_pw.php"
+                <a href="../public/change_pw.php"
                    class="block rounded-lg px-3 py-2 text-base font-medium text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white transition-all">
                     Change Password
                 </a>
-                <a href="logout.php"
+                <a href="../public/logout.php"
                    class="block rounded-lg px-3 py-2 text-base font-medium text-red-400 dark:text-red-300 hover:bg-red-900/20 hover:text-red-300 transition-all">
                     Sign out
                 </a>
