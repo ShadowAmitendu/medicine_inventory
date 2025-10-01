@@ -1,0 +1,20 @@
+{
+  "name": "medicine_inventory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx @tailwindcss/cli -i ./assets/style.css -o ./assets/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "postcss": "^8.5.6"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.13"
+  }
+}

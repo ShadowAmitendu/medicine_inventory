@@ -1,0 +1,7 @@
+# Custom 404 Error Page
+ErrorDocument 404 /public/404.php
+
+# Prevent direct access to config files
+<FilesMatch "^(db|auth)\.php$">
+    Require all denied
+</FilesMatch>
