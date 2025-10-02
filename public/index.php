@@ -123,7 +123,7 @@ include '../includes/header.php';
         <div class="bg-gradient-to-br from-green-600 to-green-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-sm font-medium text-green-200 mb-1">Worst Quality</h2>
+                    <h2 class="text-sm font-medium text-green-200 mb-1">Quality</h2>
                     <p class="text-sm font-bold text-white truncate"><?= htmlspecialchars($worstName) ?></p>
                     <p class="text-xs text-green-200">(<?= htmlspecialchars($worstQuality) ?>)</p>
                 </div>

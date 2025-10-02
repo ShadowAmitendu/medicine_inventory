@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx @tailwindcss/cli -i ./assets/style.css -o ./assets/output.css --watch"
+    "test": "npx @tailwindcss/cli -i ./assets/style.css -o ./assets/output.css --watch",
+    "prod": "npx @tailwindcss/cli -i ./assets/style.css -o ./assets/output.css --minify\n"
   },
   "keywords": [],
   "author": "",
