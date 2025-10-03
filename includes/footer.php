@@ -25,7 +25,7 @@
                 <h3 class="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Quick Links</h3>
                 <ul class="space-y-2">
                     <li>
-                        <a href="../public/index.php"
+                        <a href="../index.php"
                            class="text-gray-400 hover:text-indigo-400 transition text-sm flex items-center">
                             <svg class="h-4 w-4 mr-2"
                                  fill="none"

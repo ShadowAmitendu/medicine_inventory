@@ -98,7 +98,7 @@ require_once 'includes/header.php';
 
         <!-- Action Buttons -->
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="index.php"
+            <a href="../index.php"
                class="inline-flex items-center rounded-lg bg-indigo-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/50 hover:bg-indigo-400 transition-all transform hover:-translate-y-0.5">
                 <svg class="h-5 w-5 mr-2"
                      fill="none"

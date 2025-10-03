@@ -37,7 +37,7 @@ try {
             <!-- Logo & Brand -->
             <div class="flex items-center">
                 <div class="shrink-0">
-                    <a href="../public/index.php"
+                    <a href="../index.php"
                        class="flex items-center space-x-3 group">
                         <div class="relative">
                             <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
@@ -54,7 +54,7 @@ try {
                 <!-- Desktop Menu Links -->
                 <div class="hidden md:block ml-10">
                     <div class="flex items-baseline space-x-2">
-                        <a href="../public/index.php"
+                        <a href="../index.php"
                            class="<?= $current_page === 'index.php' ? 'bg-gray-900 dark:bg-gray-700 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200">
                             <div class="flex items-center space-x-2">
                                 <svg class="h-4 w-4"
@@ -347,7 +347,7 @@ try {
     <div id="mobileMenu"
          class="hidden md:hidden bg-gray-300 dark:bg-gray-900 border-t border-gray-500 dark:border-gray-800">
         <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="../public/index.php"
+            <a href="../index.php"
                class="<?= $current_page === 'index.php' ? 'bg-gray-900 dark:bg-gray-600 text-white' : 'text-gray-300 dark:text-gray-400 hover:bg-gray-700 dark:hover:bg-gray-600 hover:text-white' ?> block rounded-lg px-3 py-2 text-base font-medium transition-all">
                 Dashboard
             </a>

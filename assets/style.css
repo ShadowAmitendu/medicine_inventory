@@ -2,7 +2,68 @@
 @import "tailwindcss";
 
 @theme {
+    /* Fonts */
     --font-display: "Roboto", sans-serif;
     --font-sans: "Inter Display", sans-serif;
     --font-mono: "JetBrains Mono", monospace;
+
+    /* Primary Colors - Teal (#00809D) */
+    --color-primary-50: #e6f5f8;
+    --color-primary-100: #b3e0ea;
+    --color-primary-200: #80cbdc;
+    --color-primary-300: #4db6ce;
+    --color-primary-400: #26a3bd;
+    --color-primary-500: #00809D;
+    --color-primary-600: #00728d;
+    --color-primary-700: #00637a;
+    --color-primary-800: #005467;
+    --color-primary-900: #003d4a;
+
+    /* Secondary Colors - Cream (#FCECDD) */
+    --color-secondary-50: #ffffff;
+    --color-secondary-100: #fefbf8;
+    --color-secondary-200: #fef6ef;
+    --color-secondary-300: #fdf1e6;
+    --color-secondary-400: #fcecdd;
+    --color-secondary-500: #fbe5ce;
+    --color-secondary-600: #f9d9b8;
+    --color-secondary-700: #f7cca2;
+    --color-secondary-800: #f5bf8c;
+    --color-secondary-900: #f3b276;
+
+    /* Accent Colors - Orange (#FF7601) */
+    --color-accent-50: #fff4e6;
+    --color-accent-100: #ffddb3;
+    --color-accent-200: #ffc680;
+    --color-accent-300: #ffaf4d;
+    --color-accent-400: #ff9327;
+    --color-accent-500: #FF7601;
+    --color-accent-600: #e66a01;
+    --color-accent-700: #cc5e01;
+    --color-accent-800: #b35201;
+    --color-accent-900: #994600;
+
+    /* Tertiary Colors - Peach (#F3A26D) */
+    --color-tertiary-50: #fef5ef;
+    --color-tertiary-100: #fde4d2;
+    --color-tertiary-200: #fbd3b5;
+    --color-tertiary-300: #f9c298;
+    --color-tertiary-400: #f6b282;
+    --color-tertiary-500: #F3A26D;
+    --color-tertiary-600: #f09157;
+    --color-tertiary-700: #ed8041;
+    --color-tertiary-800: #ea6f2b;
+    --color-tertiary-900: #e75e15;
+
+    /* Neutral Grays */
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
 }
