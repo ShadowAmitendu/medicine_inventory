@@ -1,4 +1,7 @@
 <?php
+require_once '../config/auth.php';
+require_once '../config/db.php';
+require_once '../config/paths.php';
 http_response_code(404);
 ?>
 
@@ -10,7 +13,7 @@ http_response_code(404);
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found | MediTrack</title>
-    <link href="../assets/output.css"
+    <link href="<?= assetUrl('output.css') ?>"
           rel="stylesheet">
     <style>
         @keyframes float {
