@@ -39,37 +39,28 @@ $remembered_user = $_COOKIE['remember_user'] ?? '';
 ?>
 
 <!DOCTYPE html>
-<html class="h-full bg-gradient-to-br from-primary-900 via-gray-900 to-gray-800"
-      lang="en">
+<html lang="en" class="h-full bg-gradient-to-br from-primary-900 via-gray-900 to-gray-800">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Medicine Inventory</title>
-    <link href="<?= assetUrl('output.css') ?>"
-          rel="stylesheet">
+    <link href="<?= assetUrl('output.css') ?>" rel="stylesheet">
     <style>
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
-
         .float-animation {
             animation: float 6s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="h-full relative overflow-hidden">
+<body class="relative overflow-hidden">
 
 <!-- Background decorative elements -->
 <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDMiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-40"></div>
 <div class="absolute top-20 left-20 w-72 h-72 bg-primary-600/20 rounded-full blur-3xl float-animation"></div>
-<div class="absolute bottom-20 right-20 w-96 h-96 bg-accent-600/15 rounded-full blur-3xl float-animation"
-     style="animation-delay: 2s;"></div>
+<div class="absolute bottom-20 right-20 w-96 h-96 bg-accent-600/15 rounded-full blur-3xl float-animation" style="animation-delay: 2s;"></div>
 
 <div class="relative flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
@@ -78,14 +69,8 @@ $remembered_user = $_COOKIE['remember_user'] ?? '';
             <div class="relative group">
                 <div class="absolute -inset-2 bg-gradient-to-r from-primary-500 to-accent-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity"></div>
                 <div class="relative size-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform">
-                    <svg class="size-10 text-white"
-                         fill="none"
-                         stroke="currentColor"
-                         viewBox="0 0 24 24">
-                        <path stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    <svg class="size-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                     </svg>
                 </div>
             </div>
@@ -104,14 +89,8 @@ $remembered_user = $_COOKIE['remember_user'] ?? '';
         <?php if ($success): ?>
             <div class="mt-6 rounded-xl bg-green-500/10 backdrop-blur-sm p-4 border border-green-500/30 shadow-lg">
                 <div class="flex items-center">
-                    <svg class="h-5 w-5 text-green-400 mr-3 flex-shrink-0"
-                         fill="none"
-                         stroke="currentColor"
-                         viewBox="0 0 24 24">
-                        <path stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    <svg class="h-5 w-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <p class="text-sm text-green-300">Registration successful! Please sign in.</p>
                 </div>
@@ -121,17 +100,10 @@ $remembered_user = $_COOKIE['remember_user'] ?? '';
         <?php if ($deleted): ?>
             <div class="mt-6 rounded-xl bg-blue-500/10 backdrop-blur-sm p-4 border border-blue-500/30 shadow-lg">
                 <div class="flex items-center">
-                    <svg class="h-5 w-5 text-blue-400 mr-3 flex-shrink-0"
-                         fill="none"
-                         stroke="currentColor"
-                         viewBox="0 0 24 24">
-                        <path stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    <svg class="h-5 w-5 text-blue-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
-                    <p class="text-sm text-blue-300">Your account has been successfully deleted. We're sorry to see you
-                        go!</p>
+                    <p class="text-sm text-blue-300">Your account has been successfully deleted. We're sorry to see you go!</p>
                 </div>
             </div>
         <?php endif; ?>
@@ -139,14 +111,8 @@ $remembered_user = $_COOKIE['remember_user'] ?? '';
         <?php if ($error): ?>
             <div class="mt-6 rounded-xl bg-red-500/10 backdrop-blur-sm p-4 border border-red-500/30 shadow-lg">
                 <div class="flex items-center">
-                    <svg class="h-5 w-5 text-red-400 mr-3 flex-shrink-0"
-                         fill="none"
-                         stroke="currentColor"
-                         viewBox="0 0 24 24">
-                        <path stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    <svg class="h-5 w-5 text-red-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <p class="text-sm text-red-300"><?= htmlspecialchars($error) ?></p>
                 </div>
@@ -157,29 +123,17 @@ $remembered_user = $_COOKIE['remember_user'] ?? '';
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <!-- Login Card -->
         <div class="bg-gray-800/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl shadow-2xl p-8">
-            <form method="POST"
-                  class="space-y-6"
-                  autocomplete="on">
+            <form method="POST" class="space-y-6" autocomplete="on">
                 <!-- Username Field -->
                 <div>
-                    <label for="username"
-                           class="block text-sm font-medium text-gray-200 mb-2">Username</label>
+                    <label for="username" class="block text-sm font-medium text-gray-200 mb-2">Username</label>
                     <div class="relative group">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-5 w-5 text-gray-500 group-focus-within:text-primary-400 transition-colors"
-                                 fill="none"
-                                 stroke="currentColor"
-                                 viewBox="0 0 24 24">
-                                <path stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      stroke-width="2"
-                                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            <svg class="h-5 w-5 text-gray-500 group-focus-within:text-primary-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                             </svg>
                         </div>
-                        <input id="username"
-                               name="username"
-                               type="text"
-                               required
+                        <input id="username" name="username" type="text" required
                                value="<?= htmlspecialchars($remembered_user) ?>"
                                autocomplete="username"
                                class="block w-full rounded-xl bg-gray-700/50 pl-10 pr-4 py-3.5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 border border-gray-600 focus:border-transparent transition-all"
@@ -190,8 +144,7 @@ $remembered_user = $_COOKIE['remember_user'] ?? '';
                 <!-- Password Field -->
                 <div>
                     <div class="flex items-center justify-between mb-2">
-                        <label for="password"
-                               class="block text-sm font-medium text-gray-200">Password</label>
+                        <label for="password" class="block text-sm font-medium text-gray-200">Password</label>
                         <a href="<?= URL_CHANGE_PASSWORD ?>"
                            class="text-sm font-semibold text-primary-400 hover:text-primary-300 transition">
                             Forgot password?
@@ -199,39 +152,20 @@ $remembered_user = $_COOKIE['remember_user'] ?? '';
                     </div>
                     <div class="relative group">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-5 w-5 text-gray-500 group-focus-within:text-primary-400 transition-colors"
-                                 fill="none"
-                                 stroke="currentColor"
-                                 viewBox="0 0 24 24">
-                                <path stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      stroke-width="2"
-                                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            <svg class="h-5 w-5 text-gray-500 group-focus-within:text-primary-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                             </svg>
                         </div>
-                        <input id="password"
-                               name="password"
-                               type="password"
-                               required
+                        <input id="password" name="password" type="password" required
                                autocomplete="current-password"
                                class="block w-full rounded-xl bg-gray-700/50 pl-10 pr-12 py-3.5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 border border-gray-600 focus:border-transparent transition-all"
                                placeholder="Enter your password"/>
-                        <button type="button"
-                                onclick="togglePassword()"
+                        <button type="button" onclick="togglePassword()"
                                 class="absolute inset-y-0 right-0 pr-3 flex items-center group">
-                            <svg id="eyeIcon"
-                                 class="h-5 w-5 text-gray-500 hover:text-gray-300 transition"
-                                 fill="none"
-                                 stroke="currentColor"
-                                 viewBox="0 0 24 24">
-                                <path stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      stroke-width="2"
-                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                <path stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      stroke-width="2"
-                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            <svg id="eyeIcon" class="h-5 w-5 text-gray-500 hover:text-gray-300 transition"
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                             </svg>
                         </button>
                     </div>
@@ -239,12 +173,9 @@ $remembered_user = $_COOKIE['remember_user'] ?? '';
 
                 <!-- Remember Me -->
                 <div class="flex items-center">
-                    <input id="remember"
-                           name="remember"
-                           type="checkbox"
+                    <input id="remember" name="remember" type="checkbox"
                            class="h-4 w-4 rounded border-gray-600 bg-gray-700 text-primary-500 focus:ring-2 focus:ring-primary-500 focus:ring-offset-0 transition">
-                    <label for="remember"
-                           class="ml-2 block text-sm text-gray-300">
+                    <label for="remember" class="ml-2 block text-sm text-gray-300">
                         Remember me for 30 days
                     </label>
                 </div>
@@ -253,14 +184,8 @@ $remembered_user = $_COOKIE['remember_user'] ?? '';
                 <div>
                     <button type="submit"
                             class="flex w-full justify-center items-center rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 px-4 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 transition-all transform hover:-translate-y-0.5">
-                        <svg class="h-5 w-5 mr-2"
-                             fill="none"
-                             stroke="currentColor"
-                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+                        <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
                         </svg>
                         Sign in to your account
                     </button>
@@ -281,14 +206,8 @@ $remembered_user = $_COOKIE['remember_user'] ?? '';
             <div class="mt-6">
                 <a href="<?= URL_REGISTER ?>"
                    class="flex w-full justify-center items-center rounded-xl bg-gray-700/50 hover:bg-gray-700 border border-gray-600 hover:border-gray-500 px-4 py-3.5 text-sm font-semibold text-gray-200 hover:text-white transition-all">
-                    <svg class="h-5 w-5 mr-2"
-                         fill="none"
-                         stroke="currentColor"
-                         viewBox="0 0 24 24">
-                        <path stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
                     </svg>
                     Create a new account
                 </a>
