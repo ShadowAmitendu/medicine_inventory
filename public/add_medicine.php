@@ -2,6 +2,7 @@
 global $pdo;
 require_once '../config/auth.php';
 require_once '../config/db.php';
+require_once '../config/paths.php';
 requireAuth();
 
 $error = '';
@@ -29,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Please fill all required fields with valid data.";
     } else {
         // Handle image upload
-        $image_filename = 'default.png'; // Set default image
+        $image_filename = 'default.png';
         if ($image && $image['tmp_name'] && $image['error'] === UPLOAD_ERR_OK) {
             $ext = strtolower(pathinfo($image['name'], PATHINFO_EXTENSION));
             $allowed = ['jpg', 'jpeg', 'png', 'gif'];
@@ -48,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 if (!move_uploaded_file($image['tmp_name'], $upload_path)) {
                     $error = "Failed to upload image.";
-                    $image_filename = 'default.png'; // Fallback to default
+                    $image_filename = 'default.png';
                 }
             }
         }
@@ -75,14 +76,13 @@ include '../includes/header.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en"
-      class="h-full bg-gray-900 dark:bg-black">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <title>Add Medicine - Medicine Inventory</title>
-    <link href="../assets/output.css"
+    <link href="<?= assetUrl('output.css') ?>"
           rel="stylesheet">
     <style>
         select {
@@ -93,7 +93,7 @@ include '../includes/header.php';
         }
 
         select:focus {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236366f1' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2300809D' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
         }
 
         .file-upload-label:hover .upload-icon {
@@ -116,16 +116,16 @@ include '../includes/header.php';
         }
     </style>
 </head>
-<body class="h-full bg-gray-900 dark:bg-black">
+<body class="bg-gradient-to-br from-secondary-100 via-white to-secondary-200">
 
 <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-    <div class="bg-gray-800 dark:bg-gray-900 rounded-xl shadow-2xl p-8 border border-gray-700 dark:border-gray-800">
+    <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
 
         <!-- Header -->
-        <div class="mb-8 border-b border-gray-700 dark:border-gray-800 pb-6">
-            <h2 class="text-2xl font-bold text-white dark:text-gray-100 flex items-center">
-                <div class="bg-indigo-500/10 dark:bg-indigo-600/10 p-2 rounded-lg mr-3">
-                    <svg class="h-6 w-6 text-indigo-400 dark:text-indigo-300"
+        <div class="mb-8 border-b border-gray-200 pb-6">
+            <h2 class="text-3xl font-bold bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent flex items-center">
+                <div class="bg-primary-500/10 p-3 rounded-xl mr-3 shadow-sm">
+                    <svg class="h-7 w-7 text-primary-600"
                          fill="none"
                          stroke="currentColor"
                          viewBox="0 0 24 24">
@@ -137,15 +137,14 @@ include '../includes/header.php';
                 </div>
                 Add New Medicine
             </h2>
-            <p class="mt-2 text-sm text-gray-400 dark:text-gray-500">Fill in the details below to add a new medicine to
-                your inventory</p>
+            <p class="mt-3 text-sm text-gray-600">Fill in the details below to add a new medicine to your inventory</p>
         </div>
 
         <!-- Messages -->
         <?php if ($error): ?>
-            <div class="mb-6 rounded-lg bg-red-500/10 dark:bg-red-600/10 p-4 border border-red-500/50 dark:border-red-600/50 animate-fadeIn">
+            <div class="mb-6 rounded-xl bg-red-50 p-4 border border-red-200 animate-fadeIn">
                 <div class="flex items-center">
-                    <svg class="h-5 w-5 text-red-400 dark:text-red-300 mr-3 flex-shrink-0"
+                    <svg class="h-5 w-5 text-red-600 mr-3 flex-shrink-0"
                          fill="none"
                          stroke="currentColor"
                          viewBox="0 0 24 24">
@@ -154,13 +153,13 @@ include '../includes/header.php';
                               stroke-width="2"
                               d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
-                    <p class="text-sm text-red-300 dark:text-red-200"><?= htmlspecialchars($error) ?></p>
+                    <p class="text-sm text-red-800"><?= htmlspecialchars($error) ?></p>
                 </div>
             </div>
         <?php elseif ($success): ?>
-            <div class="mb-6 rounded-lg bg-green-500/10 dark:bg-green-600/10 p-4 border border-green-500/50 dark:border-green-600/50 animate-fadeIn">
+            <div class="mb-6 rounded-xl bg-green-50 p-4 border border-green-200 animate-fadeIn">
                 <div class="flex items-center">
-                    <svg class="h-5 w-5 text-green-400 dark:text-green-300 mr-3 flex-shrink-0"
+                    <svg class="h-5 w-5 text-green-600 mr-3 flex-shrink-0"
                          fill="none"
                          stroke="currentColor"
                          viewBox="0 0 24 24">
@@ -170,9 +169,9 @@ include '../includes/header.php';
                               d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <div>
-                        <p class="text-sm text-green-300 dark:text-green-200 font-medium"><?= htmlspecialchars($success) ?></p>
-                        <a href="list_medicines.php"
-                           class="text-sm text-green-400 dark:text-green-300 hover:text-green-300 dark:hover:text-green-200 underline mt-1 inline-block">
+                        <p class="text-sm text-green-800 font-medium"><?= htmlspecialchars($success) ?></p>
+                        <a href="<?= URL_LIST_MEDICINES ?>"
+                           class="text-sm text-green-700 hover:text-green-900 underline mt-1 inline-block">
                             View all medicines →
                         </a>
                     </div>
@@ -188,20 +187,20 @@ include '../includes/header.php';
 
             <!-- Basic Information -->
             <div class="space-y-6">
-                <h3 class="text-lg font-semibold text-white dark:text-gray-100 flex items-center">
-                    <span class="bg-indigo-500/20 dark:bg-indigo-600/20 text-indigo-400 dark:text-indigo-300 rounded-full h-6 w-6 flex items-center justify-center text-sm mr-2">1</span>
+                <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+                    <span class="bg-gradient-to-br from-primary-500 to-primary-600 text-white rounded-full h-7 w-7 flex items-center justify-center text-sm mr-3 shadow-md">1</span>
                     Basic Information
                 </h3>
 
                 <div>
                     <label for="name"
-                           class="text-sm font-medium text-gray-100 dark:text-gray-200 mb-2 flex items-center">
+                           class="text-sm font-medium text-gray-700 mb-2 flex items-center">
                         Medicine Name
-                        <span class="text-red-400 ml-1">*</span>
+                        <span class="text-red-500 ml-1">*</span>
                     </label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-5 w-5 text-gray-500 dark:text-gray-600"
+                            <svg class="h-5 w-5 text-gray-400"
                                  fill="none"
                                  stroke="currentColor"
                                  viewBox="0 0 24 24">
@@ -216,7 +215,7 @@ include '../includes/header.php';
                                name="name"
                                required
                                value="<?= htmlspecialchars($_POST['name'] ?? '') ?>"
-                               class="block w-full rounded-lg bg-gray-700/50 dark:bg-gray-800/50 pl-10 pr-4 py-3.5 text-white dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 border border-gray-600 dark:border-gray-700 focus:border-transparent transition-all"
+                               class="block w-full rounded-xl bg-gray-50 pl-10 pr-4 py-3.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 border border-gray-300 focus:border-transparent transition-all"
                                placeholder="e.g., Paracetamol 500mg"/>
                     </div>
                 </div>
@@ -224,20 +223,20 @@ include '../includes/header.php';
 
             <!-- Classification -->
             <div class="space-y-6">
-                <h3 class="text-lg font-semibold text-white dark:text-gray-100 flex items-center">
-                    <span class="bg-indigo-500/20 dark:bg-indigo-600/20 text-indigo-400 dark:text-indigo-300 rounded-full h-6 w-6 flex items-center justify-center text-sm mr-2">2</span>
+                <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+                    <span class="bg-gradient-to-br from-primary-500 to-primary-600 text-white rounded-full h-7 w-7 flex items-center justify-center text-sm mr-3 shadow-md">2</span>
                     Classification
                 </h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label for="category"
-                               class="text-sm font-medium text-gray-100 dark:text-gray-200 mb-2 flex items-center">
-                            Category <span class="text-red-400 ml-1">*</span>
+                               class="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                            Category <span class="text-red-500 ml-1">*</span>
                         </label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-600"
+                                <svg class="h-5 w-5 text-gray-400"
                                      fill="none"
                                      stroke="currentColor"
                                      viewBox="0 0 24 24">
@@ -250,10 +249,10 @@ include '../includes/header.php';
                             <select id="category"
                                     name="category"
                                     required
-                                    class="block w-full rounded-lg bg-gray-700/50 dark:bg-gray-800/50 pl-10 pr-10 py-3.5 text-white dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 border border-gray-600 dark:border-gray-700 focus:border-transparent transition-all appearance-none">
+                                    class="block w-full rounded-xl bg-gray-50 pl-10 pr-10 py-3.5 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 border border-gray-300 focus:border-transparent transition-all appearance-none">
                                 <option value="">Select Category</option>
                                 <optgroup label="Default Categories"
-                                          class="bg-gray-700 dark:bg-gray-800">
+                                          class="bg-gray-50">
                                     <?php foreach ($defaultCategories as $cat): ?>
                                         <option value="<?= htmlspecialchars($cat) ?>" <?= ($_POST['category'] ?? '') === $cat ? 'selected' : '' ?>>
                                             <?= htmlspecialchars($cat) ?>
@@ -262,7 +261,7 @@ include '../includes/header.php';
                                 </optgroup>
                                 <?php if ($customCategories): ?>
                                     <optgroup label="Your Custom Categories"
-                                              class="bg-gray-700 dark:bg-gray-800">
+                                              class="bg-gray-50">
                                         <?php foreach ($customCategories as $cat): ?>
                                             <option value="<?= htmlspecialchars($cat) ?>" <?= ($_POST['category'] ?? '') === $cat ? 'selected' : '' ?>>
                                                 <?= htmlspecialchars($cat) ?>
@@ -272,21 +271,20 @@ include '../includes/header.php';
                                 <?php endif; ?>
                             </select>
                         </div>
-                        <p class="mt-2 text-xs text-gray-400 dark:text-gray-500">
-                            <a href="manage_categories.php"
-                               class="text-indigo-400 dark:text-indigo-300 hover:text-indigo-300 dark:hover:text-indigo-200 underline">Manage
-                                custom categories</a>
+                        <p class="mt-2 text-xs text-gray-500">
+                            <a href="<?= URL_MANAGE_CATEGORIES ?>"
+                               class="text-primary-600 hover:text-primary-700 underline">Manage custom categories</a>
                         </p>
                     </div>
 
                     <div>
                         <label for="quality"
-                               class="text-sm font-medium text-gray-100 dark:text-gray-200 mb-2 flex items-center">
-                            Quality Rating <span class="text-red-400 ml-1">*</span>
+                               class="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                            Quality Rating <span class="text-red-500 ml-1">*</span>
                         </label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <svg class="h-5 w-5 text-gray-500 dark:text-gray-600"
+                                <svg class="h-5 w-5 text-gray-400"
                                      fill="none"
                                      stroke="currentColor"
                                      viewBox="0 0 24 24">
@@ -299,7 +297,7 @@ include '../includes/header.php';
                             <select id="quality"
                                     name="quality"
                                     required
-                                    class="block w-full rounded-lg bg-gray-700/50 dark:bg-gray-800/50 pl-10 pr-10 py-3.5 text-white dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 border border-gray-600 dark:border-gray-700 focus:border-transparent transition-all appearance-none">
+                                    class="block w-full rounded-xl bg-gray-50 pl-10 pr-10 py-3.5 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 border border-gray-300 focus:border-transparent transition-all appearance-none">
                                 <option value="">Select Quality</option>
                                 <option value="Excellent" <?= ($_POST['quality'] ?? '') === 'Excellent' ? 'selected' : '' ?>>
                                     ⭐⭐⭐⭐⭐ Excellent
@@ -321,16 +319,16 @@ include '../includes/header.php';
 
             <!-- Stock & Storage -->
             <div class="space-y-6">
-                <h3 class="text-lg font-semibold text-white dark:text-gray-100 flex items-center">
-                    <span class="bg-indigo-500/20 dark:bg-indigo-600/20 text-indigo-400 dark:text-indigo-300 rounded-full h-6 w-6 flex items-center justify-center text-sm mr-2">3</span>
+                <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+                    <span class="bg-gradient-to-br from-primary-500 to-primary-600 text-white rounded-full h-7 w-7 flex items-center justify-center text-sm mr-3 shadow-md">3</span>
                     Stock & Storage Details
                 </h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <label for="quantity"
-                               class="text-sm font-medium text-gray-100 dark:text-gray-200 mb-2 flex items-center">
-                            Quantity <span class="text-red-400 ml-1">*</span>
+                               class="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                            Quantity <span class="text-red-500 ml-1">*</span>
                         </label>
                         <input type="number"
                                id="quantity"
@@ -338,14 +336,14 @@ include '../includes/header.php';
                                required
                                min="0"
                                value="<?= htmlspecialchars($_POST['quantity'] ?? '') ?>"
-                               class="block w-full rounded-lg bg-gray-700/50 dark:bg-gray-800/50 px-4 py-3.5 text-white dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 border border-gray-600 dark:border-gray-700 focus:border-transparent transition-all"
+                               class="block w-full rounded-xl bg-gray-50 px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 border border-gray-300 focus:border-transparent transition-all"
                                placeholder="0"/>
                     </div>
 
                     <div>
                         <label for="expiry_date"
-                               class="text-sm font-medium text-gray-100 dark:text-gray-200 mb-2 flex items-center">
-                            Expiry Date <span class="text-red-400 ml-1">*</span>
+                               class="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                            Expiry Date <span class="text-red-500 ml-1">*</span>
                         </label>
                         <input type="date"
                                id="expiry_date"
@@ -353,19 +351,19 @@ include '../includes/header.php';
                                required
                                value="<?= htmlspecialchars($_POST['expiry_date'] ?? '') ?>"
                                min="<?= date('Y-m-d') ?>"
-                               class="block w-full rounded-lg bg-gray-700/50 dark:bg-gray-800/50 px-4 py-3.5 text-white dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 border border-gray-600 dark:border-gray-700 focus:border-transparent transition-all"/>
+                               class="block w-full rounded-xl bg-gray-50 px-4 py-3.5 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 border border-gray-300 focus:border-transparent transition-all"/>
                     </div>
 
                     <div>
                         <label for="box_id"
-                               class="block text-sm font-medium text-gray-100 dark:text-gray-200 mb-2">
+                               class="block text-sm font-medium text-gray-700 mb-2">
                             Storage Box ID
                         </label>
                         <input type="text"
                                id="box_id"
                                name="box_id"
                                value="<?= htmlspecialchars($_POST['box_id'] ?? '') ?>"
-                               class="block w-full rounded-lg bg-gray-700/50 dark:bg-gray-800/50 px-4 py-3.5 text-white dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 border border-gray-600 dark:border-gray-700 focus:border-transparent transition-all"
+                               class="block w-full rounded-xl bg-gray-50 px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 border border-gray-300 focus:border-transparent transition-all"
                                placeholder="e.g., A01"/>
                     </div>
                 </div>
@@ -373,19 +371,19 @@ include '../includes/header.php';
 
             <!-- Image Upload -->
             <div class="space-y-6">
-                <h3 class="text-lg font-semibold text-white dark:text-gray-100 flex items-center">
-                    <span class="bg-indigo-500/20 dark:bg-indigo-600/20 text-indigo-400 dark:text-indigo-300 rounded-full h-6 w-6 flex items-center justify-center text-sm mr-2">4</span>
+                <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+                    <span class="bg-gradient-to-br from-primary-500 to-primary-600 text-white rounded-full h-7 w-7 flex items-center justify-center text-sm mr-3 shadow-md">4</span>
                     Medicine Image
-                    <span class="ml-2 text-xs text-gray-500 dark:text-gray-600 font-normal">(Optional)</span>
+                    <span class="ml-2 text-xs text-gray-500 font-normal">(Optional)</span>
                 </h3>
 
                 <div>
                     <label for="image"
                            class="file-upload-label cursor-pointer block">
-                        <div class="flex items-center justify-center w-full px-6 py-12 border-2 border-dashed border-gray-600 dark:border-gray-700 rounded-xl hover:border-indigo-500 dark:hover:border-indigo-400 transition-all bg-gray-700/30 dark:bg-gray-800/30 hover:bg-gray-700/50 dark:hover:bg-gray-800/50 group">
+                        <div class="flex items-center justify-center w-full px-6 py-12 border-2 border-dashed border-gray-300 rounded-xl hover:border-primary-500 transition-all bg-gray-50 hover:bg-primary-50/50 group">
                             <div class="text-center">
                                 <div class="upload-icon transition-transform">
-                                    <svg class="mx-auto h-16 w-16 text-gray-400 dark:text-gray-500 group-hover:text-indigo-400 dark:group-hover:text-indigo-300 transition-colors"
+                                    <svg class="mx-auto h-16 w-16 text-gray-400 group-hover:text-primary-500 transition-colors"
                                          fill="none"
                                          stroke="currentColor"
                                          viewBox="0 0 24 24">
@@ -395,11 +393,10 @@ include '../includes/header.php';
                                               d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                     </svg>
                                 </div>
-                                <p class="mt-4 text-sm text-gray-300 dark:text-gray-400 font-medium">
-                                    <span class="text-indigo-400 dark:text-indigo-300">Click to upload</span> or drag
-                                    and drop
+                                <p class="mt-4 text-sm text-gray-700 font-medium">
+                                    <span class="text-primary-600">Click to upload</span> or drag and drop
                                 </p>
-                                <p class="mt-2 text-xs text-gray-500 dark:text-gray-600">PNG, JPG, GIF up to 5MB</p>
+                                <p class="mt-2 text-xs text-gray-500">PNG, JPG, GIF up to 5MB</p>
                             </div>
                         </div>
                         <input type="file"
@@ -410,21 +407,21 @@ include '../includes/header.php';
                     </label>
                     <div id="imagePreview"
                          class="mt-4 hidden">
-                        <p class="text-sm text-gray-400 dark:text-gray-500 mb-2">Selected image:</p>
-                        <div class="flex items-center space-x-3 bg-gray-700/30 dark:bg-gray-800/30 rounded-lg p-3 border border-gray-600 dark:border-gray-700">
+                        <p class="text-sm text-gray-600 mb-2">Selected image:</p>
+                        <div class="flex items-center space-x-3 bg-gray-50 rounded-xl p-3 border border-gray-200">
                             <img id="previewImg"
                                  src=""
                                  alt="Preview"
                                  class="h-16 w-16 rounded-lg object-cover">
                             <div class="flex-1 min-w-0">
                                 <p id="fileName"
-                                   class="text-sm font-medium text-white dark:text-gray-100 truncate"></p>
+                                   class="text-sm font-medium text-gray-900 truncate"></p>
                                 <p id="fileSize"
-                                   class="text-xs text-gray-400 dark:text-gray-500"></p>
+                                   class="text-xs text-gray-500"></p>
                             </div>
                             <button type="button"
                                     onclick="clearImage()"
-                                    class="text-red-400 hover:text-red-300 transition-colors">
+                                    class="text-red-500 hover:text-red-700 transition-colors">
                                 <svg class="h-5 w-5"
                                      fill="none"
                                      stroke="currentColor"
@@ -441,9 +438,9 @@ include '../includes/header.php';
             </div>
 
             <!-- Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-700 dark:border-gray-800">
+            <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
                 <button type="submit"
-                        class="flex-1 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 text-white font-semibold py-4 px-6 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-indigo-500/50 hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center">
+                        class="flex-1 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-4 px-6 rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg shadow-primary-500/30 hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center">
                     <svg class="h-5 w-5 mr-2"
                          fill="none"
                          stroke="currentColor"
@@ -455,8 +452,8 @@ include '../includes/header.php';
                     </svg>
                     Add Medicine
                 </button>
-                <a href="list_medicines.php"
-                   class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-4 px-6 rounded-lg transition-all text-center focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900 border border-gray-600 flex items-center justify-center">
+                <a href="<?= URL_LIST_MEDICINES ?>"
+                   class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-4 px-6 rounded-xl transition-all text-center focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 border border-gray-300 flex items-center justify-center">
                     <svg class="h-5 w-5 mr-2"
                          fill="none"
                          stroke="currentColor"
@@ -536,7 +533,7 @@ include '../includes/header.php';
         }
     });
 
-    const successMsg = document.querySelector('.bg-green-500\\/10');
+    const successMsg = document.querySelector('.bg-green-50');
     if (successMsg) {
         setTimeout(() => {
             successMsg.style.transition = 'opacity 0.5s';
