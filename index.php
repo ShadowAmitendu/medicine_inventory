@@ -39,8 +39,6 @@ $medicines = $stmt->fetchAll();
 
 // Set custom page title
 $pageTitle = "Dashboard";
-
-include './includes/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +52,8 @@ include './includes/header.php';
           rel="stylesheet">
 </head>
 <body class="bg-gradient-to-br from-secondary-100 via-white to-secondary-200">
-
+<?php
+include './includes/header.php';?>
 <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 
     <!-- Welcome Banner -->
